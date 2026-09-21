@@ -1,0 +1,61 @@
+export const profile = {
+  name: 'Luís Gustavo',
+  fullName: 'Luis Gustavo de Moura Cena',
+  github: 'https://github.com/Luismonx1',
+  email: 'luisgustavomoura45@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/luisgustavocena/',
+  resume: '', // Coloque o PDF em public/ e preencha, por exemplo: 'curriculo.pdf'.
+};
+
+export type DataProject = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  tools: string[];
+  questions: string[];
+  repository: string;
+  findings: string[];
+  featured?: boolean;
+  source?: { label: string; url: string };
+  visualLabel?: string;
+  scope?: string;
+  charts?: { src: string; url: string; label: string; title: string; alt: string }[];
+};
+
+// Para adicionar um projeto, inclua um novo objeto nesta lista.
+// Inclua apenas conclusões verificadas no notebook original.
+export const dataProjects: DataProject[] = [
+  {
+    id: 'netflix',
+    title: 'O que os dados contam sobre a Netflix?',
+    category: 'Análise exploratória de dados',
+    description: 'Uma exploração do catálogo da Netflix para investigar a distribuição de títulos, a presença de diferentes países e os diretores que aparecem na plataforma.',
+    tools: ['Python', 'pandas', 'Matplotlib'],
+    questions: [
+      'Quais países têm mais títulos no catálogo?',
+      'Quais títulos foram adicionados primeiro e por último por país?',
+      'Quais diretores têm mais filmes?',
+    ],
+    repository: 'https://github.com/Luismonx1/netflix-data-analysis',
+    findings: [
+      'No recorte de lançamentos entre 2000 e 2020, os Estados Unidos lideram em quantidade de títulos, seguidos pela Índia. Registros sem país informado foram excluídos.',
+      'Entre os cinco países mais presentes, as primeiras datas de adição ao catálogo variam. Essa comparação considera a data de adição, não o ano de lançamento.',
+      'Rajiv Chilaka lidera o ranking da análise com 22 filmes, seguido por Jan Suter (21) e Raúl Campos (19). Séries e registros sem diretor foram excluídos.',
+    ],
+    featured: true,
+    source: { label: 'Kaggle', url: 'https://www.kaggle.com/datasets/shivamb/netflix-shows' },
+    visualLabel: 'NETFLIX',
+    scope: 'Resultados do dataset analisado; não representam o catálogo atual da Netflix.',
+    charts: [
+      { src: 'https://raw.githubusercontent.com/Luismonx1/netflix-data-analysis/main/images/top10-paises-shows.png', url: 'https://github.com/Luismonx1/netflix-data-analysis/blob/main/images/top10-paises-shows.png', label: 'Países', title: 'Distribuição de títulos por país', alt: 'Gráfico original da análise: dez países com mais títulos no recorte de 2000 a 2020.' },
+      { src: 'https://raw.githubusercontent.com/Luismonx1/netflix-data-analysis/main/images/datas-antigo-recente-top5.png', url: 'https://github.com/Luismonx1/netflix-data-analysis/blob/main/images/datas-antigo-recente-top5.png', label: 'Datas de adição', title: 'Primeiras e últimas adições ao catálogo', alt: 'Gráfico original: datas de adição mais antigas e recentes entre os cinco países com mais títulos.' },
+      { src: 'https://raw.githubusercontent.com/Luismonx1/netflix-data-analysis/main/images/top10-diretores.png', url: 'https://github.com/Luismonx1/netflix-data-analysis/blob/main/images/top10-diretores.png', label: 'Diretores', title: 'Diretores com mais filmes', alt: 'Gráfico original: ranking de diretores, com Rajiv Chilaka em primeiro, com 22 filmes.' },
+    ],
+  },
+];
+
+export const academicProjects = [
+  { title: 'Programação em C#', category: 'Lógica & desenvolvimento', description: 'Trabalhos e exercícios da graduação que desenvolvem o raciocínio lógico e a prática de programação.', tools: ['C#', 'Lógica de programação'], url: '' },
+  { title: 'Aprendizado em prática', category: 'Projetos acadêmicos', description: 'Atividades de Sistemas de Informação: da compreensão de um problema à construção de uma solução.', tools: ['Sistemas de Informação', 'PUC Minas'], url: '' },
+];
