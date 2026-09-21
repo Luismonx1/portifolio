@@ -42,7 +42,7 @@ O seletor é gerado automaticamente. Sem gráficos, o cartão ocupa toda a largu
 
 ## Projetos acadêmicos e contatos
 
-Edite `academicProjects` no mesmo arquivo. Cada projeto tem `title`, `category`, `description`, `tools` e `url`. Preencha `url` para exibir o link individual.
+Edite `academicProjects` no mesmo arquivo. Cada projeto segue o tipo `AcademicProject`: `title`, `category`, `description`, `tools`, `url`, `howItWorks` (funcionamento), `businessImpact` (impacto potencial) e `steps` (etapas do fluxo visual). O botão “Ver mais” abre os detalhes automaticamente. Descreva benefícios como potenciais enquanto não houver resultados medidos. Para exibir uma captura real no lugar do fluxo, adicione `image: { src: 'images/projeto.png', alt: 'Descrição da tela' }` e salve o arquivo em `public/images/`. O caminho local respeita a base do Pages; sem imagem ou em caso de falha, o fluxo é exibido.
 
 O objeto `profile` contém e-mail, LinkedIn, GitHub e o nome do currículo. Outros textos de apresentação ficam em `src/App.tsx`.
 
@@ -113,3 +113,4 @@ Os gráficos vêm do repositório `netflix-data-analysis`. Se os arquivos forem 
 ## Tema claro e escuro
 
 O botão no cabeçalho alterna os temas. Na primeira visita, a aparência segue a preferência do sistema; depois, a escolha fica salva no navegador na chave portfolio-theme. O script em index.html aplica o tema antes de carregar o React. As cores escuras ficam no bloco data-theme de src/index.css. Os gráficos originais mantêm fundo branco para preservar sua legibilidade.
+

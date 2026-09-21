@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { ArrowDown, ArrowDownToLine, ArrowRight, ArrowUpRight, BarChart3, Braces, Check, ChevronDown, Code2, Database, ExternalLink, GitBranch, CodeXml as Github, GraduationCap, HeartHandshake, SquareUserRound as Linkedin, Mail, Menu, Terminal, X } from 'lucide-react';
 import { academicProjects, dataProjects, profile } from './data/portfolio';
-import type { DataProject } from './data/portfolio';
+import { AcademicProjectModal } from './AcademicProjectModal';
+import type { AcademicProject, DataProject } from './data/portfolio';
 
 const navigation = [['sobre', 'Sobre'], ['habilidades', 'Habilidades'], ['projetos', 'Projetos'], ['experiencia', 'Experiência']] as const;
 const skills = [
@@ -42,6 +43,7 @@ function ProjectCard({ project, index }: { project: DataProject; index: number }
 }
 
 export default function App() {
+  const [selectedProject, setSelectedProject] = useState<AcademicProject | null>(null);
   const [theme, setTheme] = useState<'light' | 'dark'>(() =>
     document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
   );
@@ -70,6 +72,7 @@ export default function App() {
     };
   }, [menuOpen]);
   return <>
+    {selectedProject && <AcademicProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
     <header className="site-header"><div className="container header-inner"><a href="#inicio" className="brand" aria-label="Luís Gustavo, início"><span className="brand-mark">lg<span>.</span></span><span>Luís Gustavo<span className="brand-subtitle">PORTFÓLIO DE DADOS</span></span></a>
       <nav className="desktop-nav" aria-label="Navegação principal">{navigation.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
@@ -105,7 +108,7 @@ export default function App() {
 
       <section id="projetos" className="projects-section"><div className="container"><div className="section-heading"><div><span className="section-label">03 — PROJETOS DE DADOS</span><h2>Menos achismos.<br />{' '}Mais <span>descobertas.</span></h2></div><p className="muted">Perguntas reais, dados abertos e muita curiosidade.<br />{' '}Um pouco do que venho construindo com análise de dados.</p></div><div className="projects-list">{dataProjects.map((project, index) => <ProjectCard project={project} index={index} key={project.id} />)}</div><div className="projects-note"><span>O próximo insight começa com uma boa pergunta.</span><a href={profile.github} target="_blank" rel="noreferrer">Acompanhe no GitHub <ArrowUpRight size={15} /></a></div></div></section>
 
-      <section id="outros-projetos" className="section container other-projects"><div className="section-heading"><div><span className="section-label">04 — OUTROS PROJETOS</span><h2>Além dos dados<span>.</span></h2></div><p className="muted">Uma base construída na graduação.</p></div><div className="academic-grid">{academicProjects.map((project, i) => <article className="academic-card" key={project.title}><span className="academic-icon">{i === 0 ? <Code2 size={23} /> : <Braces size={23} />}</span><div><span className="small-label">{project.category}</span><h3>{project.title}</h3><p className="muted">{project.description}</p><Tags items={project.tools} />{project.url && <a href={project.url} target="_blank" rel="noreferrer" className="academic-link">Ver projeto <ArrowUpRight size={15} /></a>}</div></article>)}</div><a href={`${profile.github}?tab=repositories`} target="_blank" rel="noreferrer" className="text-button academic-all">Explorar meus repositórios <ArrowUpRight size={15} /></a></section>
+      <section id="outros-projetos" className="section container other-projects"><div className="section-heading"><div><span className="section-label">04 — OUTROS PROJETOS</span><h2>Além dos dados<span>.</span></h2></div><p className="muted">Uma base construída na graduação.</p></div><div className="academic-grid">{academicProjects.map((project, i) => <article className="academic-card" key={project.title}><span className="academic-icon">{i === 0 ? <Code2 size={23} /> : <Braces size={23} />}</span><div><span className="small-label">{project.category}</span><h3>{project.title}</h3><p className="muted">{project.description}</p><Tags items={project.tools} /><button type="button" className="academic-link" aria-haspopup="dialog" aria-label={`Ver mais sobre ${project.title}`} onClick={() => setSelectedProject(project)}>Ver mais <ArrowUpRight size={15} /></button></div></article>)}</div><a href={`${profile.github}?tab=repositories`} target="_blank" rel="noreferrer" className="text-button academic-all">Explorar meus repositórios <ArrowUpRight size={15} /></a></section>
 
       <section id="experiencia" className="section container experience-section"><div><span className="section-label">05 — EXPERIÊNCIA</span><h2>Aprender.<br />{' '}E ajudar a <span>aprender.</span></h2><p className="muted">Minha trajetória profissional está começando.<br />{' '}Minha vontade de contribuir, já está em prática.</p></div><article className="experience-card"><div className="experience-top"><span className="experience-icon"><HeartHandshake size={25} /></span><span className="volunteer-badge">Voluntariado</span></div><span className="small-label">PROJETO DE EXTENSÃO COMUNITÁRIA</span><h3>Professor voluntário</h3><span className="organization">Projeto Beira-Linha</span><p>Ensino Introdução à Lógica de Programação com C#, ajudando os alunos a dar os primeiros passos no desenvolvimento do raciocínio lógico.</p><div className="experience-bottom"><span>Comunicação</span><span>Didática</span><span>Colaboração</span></div></article></section>
 
@@ -114,3 +117,4 @@ export default function App() {
     <footer className="container site-footer"><div><a className="brand footer-brand" href="#inicio"><span className="brand-mark">lg<span>.</span></span><span>Luís Gustavo</span></a><p>© {new Date().getFullYear()} · Feito com curiosidade e código.</p></div><div className="resume-area">{profile.resume ? <a href={`${import.meta.env.BASE_URL}${profile.resume}`} download className="resume-button"><ArrowDownToLine size={17} /> Baixar currículo <span>PDF</span></a> : <><button className="resume-button" disabled aria-describedby="resume-note"><ArrowDownToLine size={17} /> Baixar currículo <span>PDF</span></button><small id="resume-note">Currículo disponível em breve.</small></>}</div></footer>
   </>;
 }
+

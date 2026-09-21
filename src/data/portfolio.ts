@@ -55,7 +55,20 @@ export const dataProjects: DataProject[] = [
   },
 ];
 
-export const academicProjects = [
-  { title: 'Projeto de Grafos', category: 'Grafos & algoritmos', description: 'Aplicação prática dos conceitos de grafos em C#, com simulação de estruturas e algoritmos clássicos para a resolução de problemas.', tools: ['C#', 'Grafos', 'Algoritmos'], url: 'https://github.com/Luismonx1/TP-Grafos' },
-  { title: 'SISU Simplificado', category: 'Sistema de seleção universitária', description: 'Simulação da classificação de candidatos e distribuição de vagas por notas e opções de curso, com listas de selecionados, fila de espera e geração de arquivos de resultados.', tools: ['C#', 'QuickSort', 'Estruturas de dados'], url: 'https://github.com/Luismonx1/Projeto-Analise-e-Desenvolvimento-de-Sistemas' },
+export type AcademicProject = {
+  title: string;
+  category: string;
+  description: string;
+  tools: string[];
+  url: string;
+  howItWorks: string;
+  businessImpact: string;
+  steps: string[];
+  image?: { src: string; alt: string };
+};
+
+export const academicProjects: AcademicProject[] = [
+  { title: 'Projeto de Grafos', category: 'Grafos & algoritmos', description: 'Aplicação prática dos conceitos de grafos em C#, com simulação de estruturas e algoritmos clássicos para a resolução de problemas.', tools: ['C#', 'Grafos', 'Algoritmos'], url: 'https://github.com/Luismonx1/TP-Grafos', howItWorks: 'Aplica os conceitos de grafos estudados na graduação por meio da simulação de estruturas e algoritmos clássicos em C#. O foco é representar conexões e exercitar a resolução de problemas com grafos.', businessImpact: 'Grafos podem apoiar a compreensão de redes e relações em problemas de negócio. Este trabalho desenvolve a base técnica para explorar esse tipo de solução; é um exercício acadêmico, sem impacto operacional medido.', steps: ['Representar conexões', 'Explorar algoritmos', 'Resolver problemas'] },
+  { title: 'SISU Simplificado', category: 'Sistema de seleção universitária', description: 'Simulação da classificação de candidatos e distribuição de vagas por notas e opções de curso, com listas de selecionados, fila de espera e geração de arquivos de resultados.', tools: ['C#', 'QuickSort', 'Estruturas de dados'], url: 'https://github.com/Luismonx1/Projeto-Analise-e-Desenvolvimento-de-Sistemas', howItWorks: 'Lê cursos e candidatos de um arquivo, calcula as médias e ordena as notas com QuickSort. Distribui as vagas conforme a primeira e a segunda opção de curso, organiza a fila de espera e gera um arquivo com selecionados e notas de corte.', businessImpact: 'Em um contexto educacional, automatizar a classificação pode reduzir o trabalho manual e tornar os critérios de seleção mais consistentes. O projeto simula esse processo para fins acadêmicos; não há ganhos de tempo ou resultados de uso real mensurados.', steps: ['Ler candidatos e cursos', 'Classificar e distribuir vagas', 'Gerar resultados'] },
 ];
+
