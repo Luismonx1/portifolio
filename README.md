@@ -28,15 +28,19 @@ Para adicionar um projeto, acrescente um objeto a `dataProjects` com `id` único
 
 Os campos opcionais `source`, `scope` e `charts` permitem registrar a fonte, o recorte da análise e quantos gráficos você quiser. Cada gráfico recebe `src` (URL da imagem), `url` (link para abrir o original), `label`, `title` e `alt`. O seletor é criado automaticamente. Sem gráficos, o cartão usa toda a largura. A marca vermelha da Netflix só aparece no projeto `netflix`.
 
-Para adicionar projetos acadêmicos, edite `academicProjects`. Preencha `url` para mostrar o link individual. Os cartões iniciais descrevem categorias de trabalhos, sem inventar entregas específicas.
+Para adicionar projetos acadêmicos, edite `academicProjects`. Preencha `url` para mostrar o link individual. Os cartões atuais apresentam o Projeto de Grafos e o SISU Simplificado, com descrições baseadas nos respectivos repositórios.
 
 ## Currículo PDF
 
-1. Copie o currículo real para `public/curriculo.pdf`.
-2. Em `src/data/portfolio.ts`, altere `resume: ''` para `resume: 'curriculo.pdf'`.
-3. Rode `pnpm build` novamente.
+O download está ativo e utiliza `public/Currículo.pdf`. Esta é uma versão temporária fornecida pelo autor.
 
-Enquanto o arquivo não é fornecido, o botão fica desabilitado com uma mensagem explícita. Não há PDF fictício nem link quebrado. O caminho respeita a base do GitHub Pages.
+Para atualizar:
+
+1. Substitua `public/Currículo.pdf` pelo novo PDF, mantendo exatamente o nome (incluindo acento e maiúscula).
+2. Rode `pnpm build` novamente.
+3. Envie a alteração ao GitHub e execute o workflow de publicação quando quiser atualizar o site hospedado.
+
+Não é necessário alterar o código. Substituir apenas o arquivo original na Área de Trabalho não atualiza a cópia do projeto. O caminho do download respeita a base do GitHub Pages.
 
 ## Publicar no GitHub Pages
 

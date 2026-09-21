@@ -4,7 +4,7 @@ export const profile = {
   github: 'https://github.com/Luismonx1',
   email: 'luisgustavomoura45@gmail.com',
   linkedin: 'https://www.linkedin.com/in/luisgustavocena/',
-  resume: '', // Coloque o PDF em public/ e preencha, por exemplo: 'curriculo.pdf'.
+  resume: 'Currículo.pdf', // Para atualizar, substitua public/Currículo.pdf mantendo o nome.
 };
 
 export type DataProject = {
@@ -56,6 +56,6 @@ export const dataProjects: DataProject[] = [
 ];
 
 export const academicProjects = [
-  { title: 'Programação em C#', category: 'Lógica & desenvolvimento', description: 'Trabalhos e exercícios da graduação que desenvolvem o raciocínio lógico e a prática de programação.', tools: ['C#', 'Lógica de programação'], url: '' },
-  { title: 'Aprendizado em prática', category: 'Projetos acadêmicos', description: 'Atividades de Sistemas de Informação: da compreensão de um problema à construção de uma solução.', tools: ['Sistemas de Informação', 'PUC Minas'], url: '' },
+  { title: 'Projeto de Grafos', category: 'Grafos & algoritmos', description: 'Aplicação prática dos conceitos de grafos em C#, com simulação de estruturas e algoritmos clássicos para a resolução de problemas.', tools: ['C#', 'Grafos', 'Algoritmos'], url: 'https://github.com/Luismonx1/TP-Grafos' },
+  { title: 'SISU Simplificado', category: 'Sistema de seleção universitária', description: 'Simulação da classificação de candidatos e distribuição de vagas por notas e opções de curso, com listas de selecionados, fila de espera e geração de arquivos de resultados.', tools: ['C#', 'QuickSort', 'Estruturas de dados'], url: 'https://github.com/Luismonx1/Projeto-Analise-e-Desenvolvimento-de-Sistemas' },
 ];
