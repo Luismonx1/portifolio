@@ -2,23 +2,9 @@
 
 Portfólio pessoal voltado à carreira de analista de dados. React, TypeScript, TailwindCSS e Vite, com exportação estática para GitHub Pages.
 
-## Desenvolvimento
+## Construção do site
 
-Use Node.js 22.12+ e pnpm 11.19.0.
-
-```sh
-pnpm install --frozen-lockfile
-pnpm dev
-```
-
-Acesse o endereço mostrado no terminal, incluindo `/portifolio/`.
-
-```sh
-pnpm build
-pnpm preview
-```
-
-O build valida os tipos e gera o site em `dist/`.
+O GitHub Actions instala as dependências, valida o TypeScript e gera o site em `dist/` para publicação no GitHub Pages. Node.js, pnpm e Vite fazem parte desse processo de construção; não é necessário manter um servidor no computador para acessar o site publicado.
 
 ## Editar conteúdo
 
@@ -37,20 +23,19 @@ O download está ativo e utiliza `public/Currículo.pdf`. Esta é uma versão te
 Para atualizar:
 
 1. Substitua `public/Currículo.pdf` pelo novo PDF, mantendo exatamente o nome (incluindo acento e maiúscula).
-2. Rode `pnpm build` novamente.
-3. Envie a alteração ao GitHub e execute o workflow de publicação quando quiser atualizar o site hospedado.
+2. Envie a alteração ao GitHub e execute o workflow de publicação para atualizar o site hospedado. O build será realizado pelo GitHub Actions.
 
 Não é necessário alterar o código. Substituir apenas o arquivo original na Área de Trabalho não atualiza a cópia do projeto. O caminho do download respeita a base do GitHub Pages.
 
 ## Publicar no GitHub Pages
 
-O site está preparado para `https://luismonx1.github.io/portifolio/`, mas a configuração local não ativa a hospedagem por si só.
+O endereço previsto para o site é `https://luismonx1.github.io/portifolio/`. Para ativar a hospedagem:
 
 1. Envie o código para a branch `main` do repositório `Luismonx1/portifolio`.
 2. No GitHub, abra **Settings → Pages → Build and deployment** e selecione **GitHub Actions** como Source.
 3. Em **Actions**, execute manualmente o workflow **Publicar portfólio no GitHub Pages**.
 
-Pushes em `main` validam o build e geram o artefato. A publicação ocorre somente por execução manual do workflow, permitindo revisar a prévia antes de disponibilizar o site.
+Pushes em `main` validam o build e geram o artefato. Para publicar ou atualizar o site no Pages, execute manualmente o workflow.
 
 O repositório foi criado como privado. A disponibilidade do Pages para repositórios privados depende do plano da conta. Se a conta não oferecer esse recurso, será necessário escolher entre tornar o repositório público ou usar um plano compatível. A configuração não muda sua visibilidade automaticamente.
 
