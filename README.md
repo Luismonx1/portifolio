@@ -1,56 +1,39 @@
 # Portfólio · Luís Gustavo
 
-Portfólio pessoal voltado à carreira de analista de dados. React, TypeScript, TailwindCSS e Vite, com exportação estática para GitHub Pages.
+Portfólio pessoal de um estudante de Sistemas de Informação na PUC Minas, construindo carreira como analista de dados. Reúne análises de dados, projetos acadêmicos e minha atuação como professor voluntário no Projeto Beira-Linha.
 
-## Construção do site
+O destaque é uma análise exploratória do catálogo da Netflix, com perguntas, gráficos e conclusões. O site é responsivo e apresenta habilidades técnicas, contatos e currículo em PDF.
 
-O GitHub Actions instala as dependências, valida o TypeScript e gera o site em `dist/` para publicação no GitHub Pages. Node.js, pnpm e Vite fazem parte desse processo de construção; não é necessário manter um servidor no computador para acessar o site publicado.
+**Site:** [luismonx1.github.io/portifolio](https://luismonx1.github.io/portifolio/) — publicação pendente.
 
-## Editar conteúdo
+## Stack
 
-`src/data/portfolio.ts` concentra os contatos, o caminho do currículo, os projetos de dados e os acadêmicos.
+- React e TypeScript
+- TailwindCSS e Vite
+- Lucide React
+- GitHub Actions e GitHub Pages
 
-Para adicionar um projeto, acrescente um objeto a `dataProjects` com `id` único, título, descrição, categoria, ferramentas, perguntas, link do repositório e conclusões verificadas. `featured: true` acrescenta o selo de destaque. O componente reutilizável em `src/App.tsx` renderiza os novos projetos automaticamente.
+## Rodar localmente
 
-Os campos opcionais `source`, `scope` e `charts` permitem registrar a fonte, o recorte da análise e quantos gráficos você quiser. Cada gráfico recebe `src` (URL da imagem), `url` (link para abrir o original), `label`, `title` e `alt`. O seletor é criado automaticamente. Sem gráficos, o cartão usa toda a largura. A marca vermelha da Netflix só aparece no projeto `netflix`.
+Requisitos: Node.js 22.12+ e pnpm 11.19.0.
 
-Para adicionar projetos acadêmicos, edite `academicProjects`. Preencha `url` para mostrar o link individual. Os cartões atuais apresentam o Projeto de Grafos e o SISU Simplificado, com descrições baseadas nos respectivos repositórios.
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
 
-## Currículo PDF
+Abra o endereço informado no terminal, incluindo `/portifolio/`. Para conferir a versão de produção:
 
-O download está ativo e utiliza `public/Currículo.pdf`. Esta é uma versão temporária fornecida pelo autor.
+```sh
+pnpm build
+pnpm preview
+```
 
-Para atualizar:
+## Créditos e fontes
 
-1. Substitua `public/Currículo.pdf` pelo novo PDF, mantendo exatamente o nome (incluindo acento e maiúscula).
-2. Envie a alteração ao GitHub e execute o workflow de publicação para atualizar o site hospedado. O build será realizado pelo GitHub Actions.
+- [Análise Netflix](https://github.com/Luismonx1/netflix-data-analysis): código, gráficos e conclusões.
+- [Netflix Movies and TV Shows — Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows): dataset público utilizado. Os resultados se referem ao recorte analisado, não ao catálogo atual. A comparação temporal considera datas de adição ao catálogo.
+- [Projeto de Grafos](https://github.com/Luismonx1/TP-Grafos) e [SISU Simplificado](https://github.com/Luismonx1/Projeto-Analise-e-Desenvolvimento-de-Sistemas): projetos acadêmicos em C#.
+- Tipografia: Manrope e DM Sans, distribuídas pelo Google Fonts. Ícones: Lucide.
 
-Não é necessário alterar o código. Substituir apenas o arquivo original na Área de Trabalho não atualiza a cópia do projeto. O caminho do download respeita a base do GitHub Pages.
-
-## Publicar no GitHub Pages
-
-O endereço previsto para o site é `https://luismonx1.github.io/portifolio/`. Para ativar a hospedagem:
-
-1. Envie o código para a branch `main` do repositório `Luismonx1/portifolio`.
-2. No GitHub, abra **Settings → Pages → Build and deployment** e selecione **GitHub Actions** como Source.
-3. Em **Actions**, execute manualmente o workflow **Publicar portfólio no GitHub Pages**.
-
-Pushes em `main` validam o build e geram o artefato. Para publicar ou atualizar o site no Pages, execute manualmente o workflow.
-
-O repositório foi criado como privado. A disponibilidade do Pages para repositórios privados depende do plano da conta. Se a conta não oferecer esse recurso, será necessário escolher entre tornar o repositório público ou usar um plano compatível. A configuração não muda sua visibilidade automaticamente.
-
-Se renomear o repositório, ajuste `base` em `vite.config.ts`.
-
-Referência da configuração: https://vite.dev/guide/static-deploy#github-pages
-
-## Conteúdo e fontes
-
-- Projeto Netflix: https://github.com/Luismonx1/netflix-data-analysis
-- Dataset: https://www.kaggle.com/datasets/shivamb/netflix-shows
-- Os gráficos originais são carregados do repositório Netflix e têm alternativa de acesso caso a imagem não carregue.
-- As conclusões são atribuídas à análise original e não descrevem o catálogo atual. A comparação temporal utiliza datas de adição ao catálogo, não anos de lançamento.
-- Google Fonts fornece Manrope e DM Sans; há fontes locais de fallback.
-
-## Acessibilidade e responsividade
-
-Menu móvel, navegação por âncoras, link para pular ao conteúdo, foco visível, botões com estado anunciado, alternativas para imagens e respeito à preferência por movimento reduzido. Layouts específicos para celular, tablet e desktop.
+Instruções de atualização e publicação estão em [MANUTENCAO.md](./MANUTENCAO.md).
