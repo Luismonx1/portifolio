@@ -109,3 +109,7 @@ O link do currículo usa `import.meta.env.BASE_URL` e acompanha o `base`. Para d
 ## Dependências externas
 
 Os gráficos vêm do repositório `netflix-data-analysis`. Se os arquivos forem movidos ou renomeados, atualize `charts` em `portfolio.ts`. Há um link alternativo quando a imagem não carrega. Google Fonts fornece as fontes, com fallback local.
+
+## Tema claro e escuro
+
+O botão no cabeçalho alterna os temas. Na primeira visita, a aparência segue a preferência do sistema; depois, a escolha fica salva no navegador na chave portfolio-theme. O script em index.html aplica o tema antes de carregar o React. As cores escuras ficam no bloco data-theme de src/index.css. Os gráficos originais mantêm fundo branco para preservar sua legibilidade.

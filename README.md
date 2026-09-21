@@ -2,7 +2,7 @@
 
 Portfólio pessoal de um estudante de Sistemas de Informação na PUC Minas, construindo carreira como analista de dados. Reúne análises de dados, projetos acadêmicos e minha atuação como professor voluntário no Projeto Beira-Linha.
 
-O destaque é uma análise exploratória do catálogo da Netflix, com perguntas, gráficos e conclusões. O site é responsivo e apresenta habilidades técnicas, contatos e currículo em PDF.
+O destaque é uma análise exploratória do catálogo da Netflix, com perguntas, gráficos e conclusões. O site é responsivo, oferece temas claro e escuro e apresenta habilidades técnicas, contatos e currículo em PDF.
 
 **Site:** [luismonx1.github.io/portifolio](https://luismonx1.github.io/portifolio/) — publicação pendente.
 

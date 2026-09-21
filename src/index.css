@@ -20,3 +20,38 @@
 @media(min-width:801px){.mobile-nav{display:none}}
 .menu-button{min-width:44px;min-height:44px}
 .chart-selectors button{min-height:44px}
+
+/* Tema: preferência aplicada no HTML antes de o React carregar. */
+:root { color-scheme: light; }
+.theme-toggle { width:44px; height:44px; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; background:transparent; color:var(--blue); }
+.theme-toggle:hover { background:#edf3ff; }
+:root[data-theme='dark'] { color-scheme:dark; color:#e4ebf7; background:#0c1422; --blue:#88adff; --muted:#a7b5cb; --line:#2b3a51; }
+[data-theme='dark'] .site-header { background:#0c1422f5; }
+[data-theme='dark'] :is(.mobile-nav,.skip-link) { background:#121e30; }
+[data-theme='dark'] :is(.brand-mark,.hero-description strong,.about-copy strong) { color:#e4ebf7; }
+[data-theme='dark'] :is(.brand-subtitle,.desktop-nav,.hero-description,.about-copy>p,.experience-card p,.contact-card p,.skill-card p,.small-label,.eyebrow,.section-label,.hero-intro,.project-questions p,.project-findings li,.project-findings p,.contact-links small,.site-footer p,.experience-bottom,.projects-note,.hero-bottom,.hero-bottom a,.learning-note small,.art-kicker,.art-footnote,.visual-bottom,.visual-top .mono,.project-number,.resume-button>span,.resume-area>small) { color:#a7b5cb; }
+[data-theme='dark'] :is(.skill-card,.project-card,.academic-card,.analysis-window,.learning-note,.resume-button) { background:#142136; border-color:var(--line); }
+[data-theme='dark'] :is(.projects-section,.contact-card) { background:#101e34; border-color:var(--line); }
+[data-theme='dark'] .project-visual { background-color:#182841; background-image:radial-gradient(#334865 .8px,transparent .8px); border-color:var(--line); }
+[data-theme='dark'] .hero-art { background-image:radial-gradient(#304463 1px,transparent 1px); }
+[data-theme='dark'] :is(.window-bar,.window-footer) { background:#101b2c; border-color:var(--line); color:#a7b5cb; }
+[data-theme='dark'] .code-lines code { color:#ccd9ed; }
+[data-theme='dark'] .code-lines em { color:#c3a0f4; }
+[data-theme='dark'] .code-lines b { color:#7ddbc2; }
+[data-theme='dark'] :is(.code-lines .code-comment,.code-lines>div>span,.process-flow>div>span) { color:#98aac5; }
+[data-theme='dark'] :is(.availability,.featured-badge,.studying-badge,.volunteer-badge,.tag,.note-icon,.experience-icon,.skill-icon) { background:#203553; border-color:#354d70; color:#b5ceff; }
+[data-theme='dark'] .skill-icon.purple { background:#312944; color:#ccb7f6; }
+[data-theme='dark'] .skill-icon.orange { background:#3c2e24; color:#f2be85; }
+[data-theme='dark'] .skill-icon.dark { background:#293447; color:#c5d1e5; }
+[data-theme='dark'] :is(.header-contact,.academic-icon,.project-findings,.contact-links>a) { border-color:var(--line); }
+[data-theme='dark'] :is(.text-button,.organization,.projects-note a,.project-findings>a) { color:#abc5ff; }
+[data-theme='dark'] :is(.theme-toggle:hover,.header-contact:hover) { background:#203553; }
+[data-theme='dark'] :is(.button-primary,.button-dark) { background:#315fd2; color:#fff; }
+[data-theme='dark'] :is(.button-primary:hover,.button-dark:hover) { background:#3c6de7; }
+[data-theme='dark'] :is(a,button):focus-visible { outline-color:#aac6ff; }
+/* Os gráficos originais mantêm o fundo branco e suas cores. */
+[data-theme='dark'] .chart-sheet { color-scheme:light; background:#fff; border-color:#dce3ef; }
+[data-theme='dark'] .chart-selectors .selected { color:#245bea; }
+[data-theme='dark'] .chart-fallback a { color:#245bea; }
+@media(max-width:1100px) { .header-inner{gap:16px}.desktop-nav{gap:17px} }
+@media(max-width:480px) { .header-inner{gap:8px}.header-contact{display:none}.theme-toggle{margin-left:auto}.brand-subtitle{font-size:7px} }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { ArrowDown, ArrowDownToLine, ArrowRight, ArrowUpRight, BarChart3, Braces, Check, ChevronDown, Code2, Database, ExternalLink, GitBranch, CodeXml as Github, GraduationCap, HeartHandshake, SquareUserRound as Linkedin, Mail, Menu, Terminal, X } from 'lucide-react';
 import { academicProjects, dataProjects, profile } from './data/portfolio';
 import type { DataProject } from './data/portfolio';
@@ -41,6 +42,14 @@ function ProjectCard({ project, index }: { project: DataProject; index: number }
 }
 
 export default function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() =>
+    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+  );
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0c1422' : '#f7f8fa');
+    try { localStorage.setItem('portfolio-theme', theme); } catch { /* O tema funciona mesmo sem armazenamento. */ }
+  }, [theme]);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -65,6 +74,7 @@ export default function App() {
     <header className="site-header"><div className="container header-inner"><a href="#inicio" className="brand" aria-label="Luís Gustavo, início"><span className="brand-mark">lg<span>.</span></span><span>Luís Gustavo<span className="brand-subtitle">PORTFÓLIO DE DADOS</span></span></a>
       <nav className="desktop-nav" aria-label="Navegação principal">{navigation.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       <a className="header-contact" href="#contato">Vamos conversar <ArrowUpRight size={15} /></a>
+      <button className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'} title={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}>{theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}</button>
       <button ref={menuButtonRef} className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls={menuOpen ? 'mobile-menu' : undefined}>{menuOpen ? <X /> : <Menu />}</button></div>
       {menuOpen && <nav id="mobile-menu" className="mobile-nav" aria-label="Navegação móvel">{[...navigation, ['contato', 'Contato']].map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}
     </header>
