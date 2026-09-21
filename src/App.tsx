@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowDownToLine, ArrowRight, ArrowUpRight, BarChart3, Braces, Check, ChevronDown, Code2, Database, ExternalLink, GitBranch, CodeXml as Github, GraduationCap, HeartHandshake, SquareUserRound as Linkedin, Mail, Menu, Terminal, X } from 'lucide-react';
 import { academicProjects, dataProjects, profile } from './data/portfolio';
 import type { DataProject } from './data/portfolio';
@@ -27,7 +27,7 @@ function ProjectCard({ project, index }: { project: DataProject; index: number }
       <Tags items={project.tools} />
       <div className="project-questions"><span className="small-label">PERGUNTAS QUE GUIARAM A ANÁLISE</span>{project.questions.map(question => <p key={question}><Check size={15} aria-hidden="true" />{question}</p>)}</div>
       <div className="project-actions">{project.repository && <a className="button button-dark" href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> Ver projeto no GitHub <ArrowUpRight size={16} /></a>}
-      {project.findings.length > 0 && <button className="text-button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} aria-controls={`findings-${project.id}`}>{expanded ? 'Fechar conclusões' : 'Ler conclusões'}<ChevronDown className={expanded ? 'rotated' : ''} size={16} /></button>}</div>
+      {project.findings.length > 0 && <button className="text-button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} aria-controls={expanded ? `findings-${project.id}` : undefined}>{expanded ? 'Fechar conclusões' : 'Ler conclusões'}<ChevronDown className={expanded ? 'rotated' : ''} size={16} /></button>}</div>
     </div>
     {activeChart && <div className="project-visual">
       <div className="visual-top"><span className={project.id === 'netflix' ? 'netflix-logo' : 'eyebrow'}>{project.visualLabel ?? 'ANÁLISE DE DADOS'}</span><span className="mono">EXPLORAÇÃO / {String(index + 1).padStart(2, '0')}</span></div>
@@ -42,15 +42,33 @@ function ProjectCard({ project, index }: { project: DataProject; index: number }
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 801px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && menuOpen) {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    desktop.addEventListener('change', closeOnDesktop);
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      desktop.removeEventListener('change', closeOnDesktop);
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [menuOpen]);
   return <>
     <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
     <header className="site-header"><div className="container header-inner"><a href="#inicio" className="brand" aria-label="Luís Gustavo, início"><span className="brand-mark">lg<span>.</span></span><span>Luís Gustavo<span className="brand-subtitle">PORTFÓLIO DE DADOS</span></span></a>
       <nav className="desktop-nav" aria-label="Navegação principal">{navigation.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       <a className="header-contact" href="#contato">Vamos conversar <ArrowUpRight size={15} /></a>
-      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="mobile-menu">{menuOpen ? <X /> : <Menu />}</button></div>
+      <button ref={menuButtonRef} className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls={menuOpen ? 'mobile-menu' : undefined}>{menuOpen ? <X /> : <Menu />}</button></div>
       {menuOpen && <nav id="mobile-menu" className="mobile-nav" aria-label="Navegação móvel">{[...navigation, ['contato', 'Contato']].map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}
     </header>
-    <main id="conteudo">
+    <main id="conteudo" tabIndex={-1}>
       <section id="inicio" className="hero container">
         <div className="hero-copy"><div className="availability"><span /> Em busca da primeira oportunidade em dados</div>
           <p className="hero-intro">OLÁ, EU SOU O LUÍS GUSTAVO</p>
