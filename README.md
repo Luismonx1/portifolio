@@ -35,5 +35,3 @@ pnpm preview
 - [Netflix Movies and TV Shows — Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows): dataset público utilizado. Os resultados se referem ao recorte analisado, não ao catálogo atual. A comparação temporal considera datas de adição ao catálogo.
 - [Projeto de Grafos](https://github.com/Luismonx1/TP-Grafos) e [SISU Simplificado](https://github.com/Luismonx1/Projeto-Analise-e-Desenvolvimento-de-Sistemas): projetos acadêmicos em C#.
 - Tipografia: Manrope e DM Sans, distribuídas pelo Google Fonts. Ícones: Lucide.
-
-Instruções de atualização e publicação estão em [MANUTENCAO.md](./MANUTENCAO.md).
