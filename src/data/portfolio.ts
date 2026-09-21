@@ -4,7 +4,7 @@ export const profile = {
   github: 'https://github.com/Luismonx1',
   email: 'luisgustavomoura45@gmail.com',
   whatsapp: 'https://wa.me/5531980129265',
-  whatsappLabel: '+55 (31) 98012-9265',
+  whatsappLabel: 'WhatsApp',
   linkedin: 'https://www.linkedin.com/in/luisgustavocena/',
   resume: 'Currículo.pdf', // Para atualizar, substitua public/Currículo.pdf mantendo o nome.
 };

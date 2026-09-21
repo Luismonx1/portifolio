@@ -44,7 +44,7 @@ O seletor é gerado automaticamente. Sem gráficos, o cartão ocupa toda a largu
 
 Edite `academicProjects` no mesmo arquivo. Cada projeto segue o tipo `AcademicProject`: `title`, `category`, `description`, `tools`, `url`, `howItWorks` (funcionamento), `businessImpact` (impacto potencial) e `steps` (etapas do fluxo visual). O botão “Ver mais” abre os detalhes automaticamente. Descreva benefícios como potenciais enquanto não houver resultados medidos. Para exibir uma captura real no lugar do fluxo, adicione `image: { src: 'images/projeto.png', alt: 'Descrição da tela' }` e salve o arquivo em `public/images/`. O caminho local respeita a base do Pages; sem imagem ou em caso de falha, o fluxo é exibido.
 
-O objeto `profile` contém e-mail, WhatsApp, LinkedIn, GitHub e o nome do currículo. Para alterar o WhatsApp, atualize `whatsapp` (link `https://wa.me/` seguido do número com código do país e DDD, somente dígitos) e `whatsappLabel` (número exibido). Outros textos de apresentação ficam em `src/App.tsx`.
+O objeto `profile` contém e-mail, WhatsApp, LinkedIn, GitHub e o nome do currículo. Para alterar o WhatsApp, atualize `whatsapp` (link `https://wa.me/` seguido do número com código do país e DDD, somente dígitos). O campo `whatsappLabel` define apenas o texto exibido e pode permanecer como `WhatsApp` para não mostrar o número na página. Outros textos de apresentação ficam em `src/App.tsx`.
 
 ## Trocar o currículo
 
