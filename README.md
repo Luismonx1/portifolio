@@ -4,7 +4,7 @@ Portfólio pessoal de um estudante de Sistemas de Informação na PUC Minas, con
 
 O destaque é uma análise exploratória do catálogo da Netflix, com perguntas, gráficos e conclusões. O site é responsivo, oferece temas claro e escuro e apresenta habilidades técnicas, contatos e currículo em PDF.
 
-**Site:** [luismonx1.github.io/portifolio](https://luismonx1.github.io/portifolio/) — publicação pendente.
+**Site:** [luismonx1.github.io/portifolio](https://luismonx1.github.io/portifolio/)
 
 ## Stack
 

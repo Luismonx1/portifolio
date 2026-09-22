@@ -78,11 +78,11 @@ Antes de publicar, confira a navegação em celular e desktop, os links dos proj
 
 ## Ativar ou reativar o GitHub Pages
 
-Endereço previsto: https://luismonx1.github.io/portifolio/
+Endereço publicado: https://luismonx1.github.io/portifolio/
 
-Na última verificação, o repositório estava privado e o GitHub solicitava torná-lo público ou contratar um plano compatível para habilitar o Pages. A mudança de visibilidade também expõe o código e o histórico; confirme essa escolha com o proprietário antes de alterá-la.
+O repositório é público e o Pages está configurado com a origem GitHub Actions. A primeira publicação foi concluída em 22/09/2026, com autorização do proprietário para tornar o repositório público.
 
-Depois de resolver a disponibilidade do Pages:
+Para publicar uma atualização ou reativar o Pages:
 
 1. Envie a versão desejada para a branch `main`.
 2. Abra **Settings → Pages → Build and deployment**.
@@ -92,8 +92,6 @@ Depois de resolver a disponibilidade do Pages:
 6. Abra o endereço público e confira o download do currículo.
 
 Pushes em `main` apenas validam e geram o artefato. A publicação exige execução manual do workflow. Esse processo também serve para atualizar o site.
-
-Após a primeira publicação verificada, remova a indicação “publicação pendente” do README.
 
 Referência: [Publicação de um site Vite no GitHub Pages](https://vite.dev/guide/static-deploy#github-pages).
 
